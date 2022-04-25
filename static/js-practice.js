@@ -41,6 +41,20 @@ An Agreeable Form
 *************** */
 
 // Your Code Here
+const agreeForm = document.querySelector('#agreeable-form');
+const agreeText = document.querySelector('#agreeable-text');
+agreeForm.addEventListener('submit', (evt) => {
+
+  //prevent default
+  evt.preventDefault();
+
+  //get values from input 
+  const faveFood = document.querySelector('#favorite-food-input').value;
+  
+  //add message to div 
+  agreeText.innerHTML = `I like ${faveFood}, too.`;
+
+})
 
 /** ****************
 Five colored primes
