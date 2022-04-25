@@ -50,7 +50,7 @@ agreeForm.addEventListener('submit', (evt) => {
 
   //get values from input 
   const faveFood = document.querySelector('#favorite-food-input').value;
-  
+
   //add message to div 
   agreeText.innerHTML = `I like ${faveFood}, too.`;
 
@@ -80,3 +80,17 @@ function showPuppies(results) {
 }
 
 // Your Code Here
+
+
+const numPuppies = Number(document.querySelector('#num-puppies').value);
+
+//add event listener
+document.querySelector('#puppy-form').addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  fetch(`/puppies.json?num-puppies=${numPuppies}`)
+    .then(response => response.json())
+    .then(data => {
+      showPuppies(data);
+  });
+});
+
